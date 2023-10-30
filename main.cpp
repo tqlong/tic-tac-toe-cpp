@@ -5,11 +5,17 @@
 #define WINDOW_HEIGHT 600
 
 int main_graphic();
-
+int main_text();
 
 int main()
 {
+    return main_text();
     // return main_graphic();
+}
+
+int main_text()
+{
+    return 0;
 }
 
 int main_graphic()
