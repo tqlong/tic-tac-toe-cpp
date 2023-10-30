@@ -4,7 +4,15 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
+int main_graphic();
+
+
 int main()
+{
+    // return main_graphic();
+}
+
+int main_graphic()
 {
     sf::RenderWindow window(
         sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Tic-tac-toe!");
