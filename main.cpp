@@ -1,24 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <set>
+#include "game_state.h"
+#include "minimax.h"
+using namespace std;
 
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
-int main_graphic();
-int main_text();
+int main_graphic_mode();
+int main_text_mode();
 
 int main()
 {
-    return main_text();
+    return main_text_mode();
     // return main_graphic();
 }
 
-int main_text()
-{
-    return 0;
-}
-
-int main_graphic()
+int main_graphic_mode()
 {
     sf::RenderWindow window(
         sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Tic-tac-toe!");
