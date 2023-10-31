@@ -28,24 +28,25 @@ Player get_game_mode()
     }
 }
 
-Action get_human_action(const GameState& state)
+Action get_human_action(const GameState &state)
 {
     vector<Action> legal_actions = state.get_legal_actions();
     set<Action> legal_actions_set(legal_actions.begin(), legal_actions.end());
 
     Action action(-1, -1);
-    do {
+    do
+    {
         cout << "Hey, " << state.get_turn() << ", enter your action (x y): ";
         int x, y;
         cin >> x >> y;
-        action = Action(x-1, y-1);
+        action = Action(x - 1, y - 1);
     } while (legal_actions_set.find(action) == legal_actions_set.end());
     return action;
 }
 
-void render_game_text_mode(const GameState& state)
+void render_game_text_mode(const GameState &state)
 {
-    const Board& board = state.get_board();
+    const Board &board = state.get_board();
     for (int y = 0; y < board[0].size(); y++)
     {
         for (int x = 0; x < board.size(); x++)

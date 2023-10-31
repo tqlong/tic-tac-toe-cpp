@@ -11,7 +11,7 @@ enum class Player
     None
 };
 
-std::ostream& operator<<(std::ostream& os, const Player& player);
+std::ostream &operator<<(std::ostream &os, const Player &player);
 
 typedef std::vector<std::vector<Player>> Board;
 
@@ -19,11 +19,11 @@ struct Action
 {
     int x;
     int y;
-    Action(int x = -1, int y =  -1) : x(x), y(y) {}
+    Action(int x = -1, int y = -1) : x(x), y(y) {}
 };
 
-std::ostream& operator<<(std::ostream& os, const Action& action);
-bool operator<(const Action& a1, const Action& a2);
+std::ostream &operator<<(std::ostream &os, const Action &action);
+bool operator<(const Action &a1, const Action &a2);
 
 // current game state = board + turn
 class GameState
@@ -31,18 +31,19 @@ class GameState
 private:
     Board board;
     Player turn;
+
 public:
     GameState();
     // get current turn
     Player get_turn() const;
     // get current board
-    const Board& get_board() const;
+    const Board &get_board() const;
     // get legal actions
     std::vector<Action> get_legal_actions() const;
     // check if action is legal
-    bool is_valid_action(const Action& action) const;
+    bool is_valid_action(const Action &action) const;
     // get next state after action
-    GameState get_next_state(const Action& action) const;
+    GameState get_next_state(const Action &action) const;
     // check if game is over (final state)
     bool is_terminal() const;
     // final state evaluation

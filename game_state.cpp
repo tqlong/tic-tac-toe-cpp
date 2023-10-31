@@ -45,7 +45,8 @@ bool GameState::is_valid_action(const Action &action) const
 
 GameState GameState::get_next_state(const Action &action) const
 {
-    if (!is_valid_action(action)) return *this;
+    if (!is_valid_action(action))
+        return *this;
 
     GameState next_state = *this;
     next_state.board[action.x][action.y] = turn;
@@ -160,7 +161,7 @@ ostream &operator<<(ostream &os, const Player &player)
 
 ostream &operator<<(ostream &os, const Action &action)
 {
-    os << "(col " << action.x+1 << ", row " << action.y+1 << ")";
+    os << "(col " << action.x + 1 << ", row " << action.y + 1 << ")";
     return os;
 }
 

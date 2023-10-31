@@ -1,15 +1,16 @@
 #include "../game_state.h"
 #include <gtest/gtest.h>
 
-TEST(GameStateTest, Init) {
+TEST(GameStateTest, Init)
+{
     GameState s;
-    const Board& b = s.get_board();
+    const Board &b = s.get_board();
 
     EXPECT_EQ(b.size(), 3); // board is 3x3
     EXPECT_EQ(b[0].size(), 3);
     EXPECT_EQ(b[1].size(), 3);
     EXPECT_EQ(b[2].size(), 3);
-    
+
     EXPECT_EQ(b[0][0], Player::None); // board is empty
     EXPECT_EQ(b[0][1], Player::None);
     EXPECT_EQ(b[0][2], Player::None);
@@ -23,7 +24,8 @@ TEST(GameStateTest, Init) {
     EXPECT_EQ(s.get_turn(), Player::X); // X always goes first
 }
 
-TEST(GameState, IsValidAction) {
+TEST(GameState, IsValidAction)
+{
     GameState s;
     Action a1(0, 0);
     Action a2(1, 1);
@@ -36,7 +38,8 @@ TEST(GameState, IsValidAction) {
     EXPECT_FALSE(s.is_valid_action(a4));
 }
 
-TEST(GameState, GetNextState) {
+TEST(GameState, GetNextState)
+{
     GameState s;
     Action a1(0, 0);
     Action a2(1, 1);
@@ -54,7 +57,8 @@ TEST(GameState, GetNextState) {
     EXPECT_EQ(s4.get_board()[2][2], Player::X); // should not change state
 }
 
-TEST(GameState, IsTerminal) {
+TEST(GameState, IsTerminal)
+{
     GameState s;
     Action a1(0, 0);
     Action a2(1, 1);
@@ -70,11 +74,11 @@ TEST(GameState, IsTerminal) {
     GameState s5 = s4.get_next_state(a5);
     GameState s6 = s5.get_next_state(a6);
 
-    EXPECT_FALSE(s.is_terminal()); // empty board
+    EXPECT_FALSE(s.is_terminal());  // empty board
     EXPECT_FALSE(s1.is_terminal()); // 1 move
     EXPECT_FALSE(s2.is_terminal()); // 2 moves
     EXPECT_FALSE(s3.is_terminal()); // 3 moves
     EXPECT_FALSE(s4.is_terminal()); // 4 moves
     EXPECT_FALSE(s5.is_terminal()); // 5 moves
-    EXPECT_TRUE(s6.is_terminal()); // 6 moves
+    EXPECT_TRUE(s6.is_terminal());  // 6 moves
 }
