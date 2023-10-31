@@ -84,7 +84,7 @@ int main_text_mode()
         render_game_text_mode(state);
         Player current = state.get_turn();
         bool is_human_turn = current != computer;
-        Action action(-1, -1);
+        Action action;
         if (!is_human_turn)
         {
             MinimaxSolver solver(state);
@@ -101,8 +101,6 @@ int main_text_mode()
 
     int eval = state.evaluate();
     cout << "Game over!" << endl;
-    cout << "Result: " <<
-        (eval > 0 ? "X wins!" :
-            (eval < 0 ? "O wins!" : "Draw!")) << endl;
+    cout << "Result: " << (eval > 0 ? "X wins!" : (eval < 0 ? "O wins!" : "Draw!")) << endl;
     return 0;
 }

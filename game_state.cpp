@@ -45,6 +45,8 @@ bool GameState::is_valid_action(const Action &action) const
 
 GameState GameState::get_next_state(const Action &action) const
 {
+    if (!is_valid_action(action)) return *this;
+
     GameState next_state = *this;
     next_state.board[action.x][action.y] = turn;
     next_state.turn = (turn == Player::X) ? Player::O : Player::X;
