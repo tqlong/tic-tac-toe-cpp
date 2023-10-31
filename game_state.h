@@ -19,7 +19,7 @@ struct Action
 {
     int x;
     int y;
-    Action(int x, int y) : x(x), y(y) {}
+    Action(int x = -1, int y =  -1) : x(x), y(y) {}
 };
 
 std::ostream& operator<<(std::ostream& os, const Action& action);
@@ -39,6 +39,8 @@ public:
     const Board& get_board() const;
     // get legal actions
     std::vector<Action> get_legal_actions() const;
+    // check if action is legal
+    bool is_valid_action(const Action& action) const;
     // get next state after action
     GameState get_next_state(const Action& action) const;
     // check if game is over (final state)

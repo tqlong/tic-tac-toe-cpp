@@ -9,7 +9,7 @@ endif()
 find_package(SFML COMPONENTS system window graphics network audio CONFIG REQUIRED)
 set(SFML_LIBRARIES sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
 
-add_executable(${PROJECT_NAME} main.cpp game_state.cpp minimax.cpp main_text_mode.cpp)
+add_executable(${PROJECT_NAME} main.cpp game_state.cpp minimax.cpp main_text_mode.cpp main_graphic_mode.cpp)
 
 target_include_directories(${PROJECT_NAME} PRIVATE)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${SFML_LIBRARIES})

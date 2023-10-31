@@ -33,6 +33,16 @@ std::vector<Action> GameState::get_legal_actions() const
     return legal_actions;
 }
 
+bool GameState::is_valid_action(const Action &action) const
+{
+    if (action.x < 0 || action.x >= board.size() ||
+        action.y < 0 || action.y >= board[0].size())
+    {
+        return false;
+    }
+    return board[action.x][action.y] == Player::None;
+}
+
 GameState GameState::get_next_state(const Action &action) const
 {
     GameState next_state = *this;

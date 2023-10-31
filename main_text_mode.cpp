@@ -83,8 +83,9 @@ int main_text_mode()
     {
         render_game_text_mode(state);
         Player current = state.get_turn();
+        bool is_human_turn = current != computer;
         Action action(-1, -1);
-        if (current == computer)
+        if (!is_human_turn)
         {
             MinimaxSolver solver(state);
             action = solver.get_best_action();
